@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+import java.util.Optional;
+
 @Entity
 @Table(name = "tb_aluno")
 @Getter
@@ -16,5 +19,7 @@ public class Aluno {
     private String nome;
     private String email;
     private String senha;
+    @OneToMany
+    private List<Estudos> estudos;
 
 }

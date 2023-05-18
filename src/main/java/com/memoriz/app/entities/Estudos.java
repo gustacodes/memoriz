@@ -14,6 +14,9 @@ public class Estudos {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String disciplina;
+    @Column(columnDefinition = "TEXT")
     private String resumo;
-    
+    @ManyToOne
+    private Aluno aluno;
+
 }
