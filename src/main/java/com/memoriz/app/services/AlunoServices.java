@@ -30,4 +30,8 @@ public class AlunoServices {
         return new AlunoDTO(aluno.get());
     }
 
+    public void deleteAluno(Long id) {
+        alunoRepository.deleteById(id);
+    }
+
 }

@@ -8,6 +8,9 @@ import com.memoriz.app.repositories.EstudosRepository;
 import com.memoriz.app.services.AlunoServices;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -50,5 +53,11 @@ public class AlunoController {
         AlunoDTO alunoDTO = alunoServices.findById(id);
         List<Estudos> lista = estudosRepository.findByid(id);
         return lista;
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<Void> deleteAluno(@PathVariable Long id) {
+        alunoServices.deleteAluno(id);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 }
