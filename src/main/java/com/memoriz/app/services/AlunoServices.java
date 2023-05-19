@@ -19,12 +19,15 @@ public class AlunoServices {
         return alunoRepository.save(aluno);
     }
 
-    public List<Aluno> findAll() {
-        return alunoRepository.findAll();
+    public List<AlunoDTO> findAll() {
+        List<Aluno> listaAlunos = alunoRepository.findAll();
+        return listaAlunos.stream().map(x -> new AlunoDTO(x)).toList();
     }
 
-    public Aluno findById(Long id) {
+    public AlunoDTO findById(Long id) {
         Optional<Aluno> aluno = alunoRepository.findById(id);
-        return aluno.get();
+        Aluno al = aluno.orElseThrow(() -> new RuntimeException("Aluno não encontrado"));
+        return new AlunoDTO(aluno.get());
     }
+
 }

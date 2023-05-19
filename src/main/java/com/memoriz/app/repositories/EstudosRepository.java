@@ -10,7 +10,6 @@ import java.util.Optional;
 
 @Repository
 public interface EstudosRepository extends JpaRepository<Estudos, Long> {
-
     @Query(nativeQuery = true, value = "SELECT * FROM tb_estudos WHERE aluno_id = :id")
     List<Estudos> findByid(Long id);
 }

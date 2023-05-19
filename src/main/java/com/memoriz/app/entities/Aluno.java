@@ -1,5 +1,6 @@
 package com.memoriz.app.entities;
 
+import com.memoriz.app.dtos.AlunoDTO;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -21,5 +22,6 @@ public class Aluno {
     private String senha;
     @OneToMany
     private List<Estudos> estudos;
+
 
 }

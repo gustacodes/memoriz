@@ -10,6 +10,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -29,22 +30,25 @@ public class AlunoController {
     }
 
     @GetMapping("/lista")
-    public List<Aluno> findAll() {
-        return alunoServices.findAll();
+    public List<AlunoDTO> findAll() {
+        List<AlunoDTO> alunoDTO = alunoServices.findAll();
+        return alunoDTO;
     }
 
-    @PostMapping("/estudos/{id}")
-    public Aluno salvaEstudos(@PathVariable Long id, @RequestBody Estudos estudos) {
-        Aluno aluno = alunoServices.findById(id);
+    @PostMapping("/estudos/save/{id}")
+    public Object salvaEstudos(@PathVariable Long id, @RequestBody Estudos estudos) {
+        AlunoDTO alunoDTO = alunoServices.findById(id);
+        var aluno = new Aluno();
+        BeanUtils.copyProperties(alunoDTO, aluno);
         estudos.setAluno(aluno);
         estudosRepository.save(estudos);
-        return aluno;
+        return estudos;
     }
 
     @GetMapping("/estudos/{id}")
     public List<Estudos> estudos(@PathVariable Long id) {
-        Aluno aluno = alunoServices.findById(id);
-        List<Estudos> l = estudosRepository.findByid(id);        
-        return l;
+        AlunoDTO alunoDTO = alunoServices.findById(id);
+        List<Estudos> lista = estudosRepository.findByid(id);
+        return lista;
     }
 }
