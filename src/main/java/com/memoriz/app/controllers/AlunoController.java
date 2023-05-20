@@ -28,31 +28,39 @@ public class AlunoController {
     private EstudosRepository estudosRepository;
 
     @PostMapping("/cadastro")
-    public Aluno save(@RequestBody Aluno aluno) {
-        return alunoServices.save(aluno);
+    public ResponseEntity<Aluno> save(@RequestBody Aluno aluno) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(alunoServices.save(aluno));
     }
 
     @GetMapping("/lista")
-    public List<AlunoDTO> findAll() {
+    public ResponseEntity<List<AlunoDTO>> findAll() {
         List<AlunoDTO> alunoDTO = alunoServices.findAll();
-        return alunoDTO;
+        return ResponseEntity.status(HttpStatus.OK).body(alunoDTO);
     }
 
     @PostMapping("/estudos/save/{id}")
-    public Object salvaEstudos(@PathVariable Long id, @RequestBody Estudos estudos) {
+    public ResponseEntity<Object> salvaEstudos(@PathVariable Long id, @RequestBody Estudos estudos) {
+
         AlunoDTO alunoDTO = alunoServices.findById(id);
         var aluno = new Aluno();
         BeanUtils.copyProperties(alunoDTO, aluno);
         estudos.setAluno(aluno);
+        List<Estudos> estudoAluno = aluno.getEstudos();
+        estudoAluno.add(estudos);
+        aluno.setEstudos(estudoAluno);
         estudosRepository.save(estudos);
-        return estudos;
+        alunoServices.save(aluno);
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(aluno);
     }
 
     @GetMapping("/estudos/{id}")
-    public List<Estudos> estudos(@PathVariable Long id) {
+    public ResponseEntity<AlunoDTO> estudos(@PathVariable Long id) {
         AlunoDTO alunoDTO = alunoServices.findById(id);
         List<Estudos> lista = estudosRepository.findByid(id);
-        return lista;
+        alunoDTO.setEstudos(lista);
+
+        return ResponseEntity.status(HttpStatus.OK).body(alunoDTO);
     }
 
     @DeleteMapping("/delete/{id}")

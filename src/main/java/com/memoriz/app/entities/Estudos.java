@@ -17,6 +17,7 @@ public class Estudos {
     @Column(columnDefinition = "TEXT")
     private String resumo;
     @ManyToOne
+    @JoinColumn
     private Aluno aluno;
 
 }

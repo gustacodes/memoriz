@@ -2,10 +2,12 @@ package com.memoriz.app.services;
 
 import com.memoriz.app.dtos.AlunoDTO;
 import com.memoriz.app.entities.Aluno;
+import com.memoriz.app.entities.Estudos;
 import com.memoriz.app.repositories.AlunoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -16,6 +18,7 @@ public class AlunoServices {
     private AlunoRepository alunoRepository;
 
     public Aluno save(Aluno aluno) {
+        aluno.setEstudos(new ArrayList<Estudos>());
         return alunoRepository.save(aluno);
     }
 
