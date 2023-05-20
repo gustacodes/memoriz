@@ -13,9 +13,8 @@ import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.time.LocalDate;
+import java.util.*;
 
 @RestController
 @RequestMapping("/alunos")
@@ -29,12 +28,14 @@ public class AlunoController {
 
     @PostMapping("/cadastro")
     public ResponseEntity<Aluno> save(@RequestBody Aluno aluno) {
+
         return ResponseEntity.status(HttpStatus.CREATED).body(alunoServices.save(aluno));
     }
 
     @GetMapping("/lista")
     public ResponseEntity<List<AlunoDTO>> findAll() {
         List<AlunoDTO> alunoDTO = alunoServices.findAll();
+
         return ResponseEntity.status(HttpStatus.OK).body(alunoDTO);
     }
 
@@ -45,6 +46,7 @@ public class AlunoController {
         var aluno = new Aluno();
         BeanUtils.copyProperties(alunoDTO, aluno);
         estudos.setAluno(aluno);
+        estudos.setData(LocalDate.now());
         List<Estudos> estudoAluno = aluno.getEstudos();
         estudoAluno.add(estudos);
         aluno.setEstudos(estudoAluno);
