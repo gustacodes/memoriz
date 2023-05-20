@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/src/main/resources/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/style.css">
     <title>Memoriz</title>
 </head>
 <body>
@@ -18,12 +18,10 @@
 
    <div class="formulario">
     
-    <form action="" method="post" class="form">
+    <form action="/estudos/save/" method="post" class="form">
 
     <label for="Materia">Disciplina: </label>
-    <input type="text">
-    <label for="Materia">Assunto: </label>
-    <input type="text"> 
+    <input type="text" name="disciplina">
     <label for="Materia">Data: </label>
     <input type="date">
     <label for="Materia">Hora início: </label>
@@ -31,11 +29,11 @@
     <label for="Materia">Hora Fim: </label>
     <input type="time">
     <label for="">Resumo: </label>
-    <textarea name="" id="" cols="30" rows="10"> </textarea>
+    <textarea name="resumo" id="" cols="30" rows="10"> </textarea>
 
    
     </form>
-    <button>Salvar</button>
+    <button type="submit">Salvar</button>
    
     </div>
     
