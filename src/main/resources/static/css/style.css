@@ -35,16 +35,21 @@ body{
 .img-box{
     background-color: rgba(255,255, 255,0.5);
     width: 50%;
-    display: flex;
+    display: grid;
     align-items: center;
     padding: 20px;
     border-radius: 20px 0 0 20px;
 
 }
-.img-box img{
-    width: 20%;
-    
+.caixa-logo{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+
 }
+
 .form-box{
     background-color: rgba(255,255, 255,0.4);
     backdrop-filter: blur(40px);
