@@ -4,10 +4,8 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-   
+    font-family: 'Poppins', sans-serif;  
 }
-
 body{
     background-image: url(/src/main/resources/static/img/background.png);
     background-position: center;
@@ -19,7 +17,6 @@ body{
     padding: 20px;
     min-height: 100vh;
 }
-
 .w50{
     width: 80%;
     float: left;
@@ -27,12 +24,10 @@ body{
 }
 .data{
     width: 50%;
-
 }
 .box{
     display: flex;
     width: 1000px;
-
 }
 .img-box{
     background-color: rgba(255,255, 255,0.5);
@@ -41,7 +36,6 @@ body{
     align-items: center;
     padding: 20px;
     border-radius: 20px 0 0 20px;
-
 }
 .caixa-logo{
     width: 100%;
@@ -49,9 +43,7 @@ body{
     display: flex;
     justify-content: center;
     padding: 10px;
-
 }
-
 .form-box{
     background-color: rgba(255,255, 255,0.4);
     backdrop-filter: blur(40px);
@@ -62,16 +54,12 @@ body{
 .form-box h2{
     font-weight: bold;
     color: #3D3D3D;
-
-
 }
 .form-box form{
     margin: 20px 0;
-
 }
 form{
     display:grid;
-
 }
 form .input-grupo{
     margin-bottom: 15px;
@@ -81,7 +69,6 @@ form .input-grupo label {
     font-weight: bold;
     display: block;
     margin-bottom: 5px;
-
 }
 form .input-grupo input {
     width: 100%;
@@ -94,7 +81,6 @@ form .input-grupo input {
     font-size: 15px;
     color: #616161;
     transition: all 0.4s ease;
-
 }
 form .input-grupo input:focus{
     border-color: #ff008869;
@@ -122,8 +108,6 @@ textarea{
     font-size: 15px;
     color: #616161;
     transition: all 0.4s ease;
-    
-
 }
 .area{
     width: 130%;
@@ -136,40 +120,27 @@ textarea{
     font-size: 15px;
     color: #616161;
     transition: all 0.4s ease;
-
 }
 
 @media (max-width:930px){
-
     .box{
         display: grid;
         width: 700px;
-        justify-items: center;
-        
-            
+        justify-items: center;            
     }
    .box .img-box{
     background: none;
     justify-content: center;
-    width: 350px;
-    
-    
-   }
-   
-  
+    width: 350px;  
+   }  
     .form-box{
         width: 80%;
         border-radius: 20px;
     }
 }
-
-
-
 @media (max-width:500px) {
     .w50{
         width: 100%;
         padding: 0;
-    }
-    
-    
+    }    
 }
