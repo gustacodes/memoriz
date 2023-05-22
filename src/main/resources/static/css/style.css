@@ -123,6 +123,19 @@ textarea{
     
 
 }
+.area{
+    width: 130%;
+    height: 200px;
+    background-color: rgba(255,255, 255,0.32);
+    border-radius: 20px;
+    outline: none;
+    border: 2px solid transparent;
+    padding: 15px;
+    font-size: 15px;
+    color: #616161;
+    transition: all 0.4s ease;
+
+}
 
 @media (max-width:930px){
 
@@ -136,7 +149,7 @@ textarea{
    .box .img-box{
     background: none;
     justify-content: center;
-    width: 500px;
+    width: 350px;
     
     
    }
