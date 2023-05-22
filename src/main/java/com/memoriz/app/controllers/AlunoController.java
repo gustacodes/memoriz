@@ -45,7 +45,7 @@ public class AlunoController {
     }
 
     @GetMapping("/estudos/save")
-    public ModelAndView test() {
+    public ModelAndView salvaEstudos() {
         ModelAndView mv = new ModelAndView("memoriz");
         return mv;
     }
