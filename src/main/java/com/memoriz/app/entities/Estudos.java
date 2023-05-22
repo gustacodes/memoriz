@@ -20,6 +20,7 @@ public class Estudos {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String disciplina;
+    private String assunto;
     @Column(columnDefinition = "TEXT")
     private String resumo;
     @DateTimeFormat(pattern = "dd/MM/yyyy")

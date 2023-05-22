@@ -8,15 +8,20 @@ import com.memoriz.app.repositories.EstudosRepository;
 import com.memoriz.app.services.AlunoServices;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.time.LocalDate;
 import java.util.*;
 
-@RestController
+@Controller
 @RequestMapping("/alunos")
 public class AlunoController {
 
@@ -39,21 +44,17 @@ public class AlunoController {
         return ResponseEntity.status(HttpStatus.OK).body(alunoDTO);
     }
 
-    @PostMapping("/estudos/save/{id}")
-    public ResponseEntity<Object> salvaEstudos(@PathVariable Long id, @RequestBody Estudos estudos) {
+    @GetMapping("/estudos/save")
+    public ModelAndView test() {
+        ModelAndView mv = new ModelAndView("memoriz");
+        return mv;
+    }
 
-        AlunoDTO alunoDTO = alunoServices.findById(id);
-        var aluno = new Aluno();
-        BeanUtils.copyProperties(alunoDTO, aluno);
-        estudos.setAluno(aluno);
-        estudos.setData(LocalDate.now());
-        List<Estudos> estudoAluno = aluno.getEstudos();
-        estudoAluno.add(estudos);
-        aluno.setEstudos(estudoAluno);
+    @PostMapping("/estudos/save")
+    public ModelAndView salvaEstudos(Estudos estudos) {
+        ModelAndView mv = new ModelAndView("memoriz");
         estudosRepository.save(estudos);
-        alunoServices.save(aluno);
-
-        return ResponseEntity.status(HttpStatus.CREATED).body(aluno);
+        return mv;
     }
 
     @GetMapping("/estudos/{id}")
