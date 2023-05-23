@@ -49,7 +49,7 @@ public class AlunoController {
 
     @PostMapping("/")
     public ModelAndView salvaEstudos(Estudos estudos) {
-        ModelAndView mv = new ModelAndView("memoriz");
+        ModelAndView mv = new ModelAndView("resumos");
         estudosRepository.save(estudos);
         return mv;
     }

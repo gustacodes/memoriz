@@ -82,33 +82,6 @@
 
     </style>
 
-    <script>
-        // Função para abrir o modal
-        function openModal() {
-            var modal = document.getElementById("myModal");
-            modal.style.display = "block";
-            setTimeout(function() {
-                modal.classList.add("show");
-            }, 50);
-        }
-
-        // Função para fechar o modal
-        function closeModal() {
-            var modal = document.getElementById("myModal");
-            modal.classList.remove("show");
-            setTimeout(function() {
-                modal.style.display = "none";
-            }, 300);
-        }
-
-        // Fechar o modal quando o usuário clicar fora dele
-        window.onclick = function(event) {
-            var modal = document.getElementById("myModal");
-            if (event.target == modal) {
-                closeModal();
-            }
-        }
-    </script>
 </head>
 <body>
 <h2>Meus Resumos</h2>
@@ -124,23 +97,55 @@
     </thead>
     <tbody>
     <tr th:each="estudo: ${estudos}">
-        <td style="color: green"><strong>Revisado ✔</strong></td>
+        <td style="color: yellow"><strong>Pendente ⚠</strong></td>
         <td th:text="${estudo.disciplina}"></td>
         <td th:text="${estudo.assunto}"></td>
         <td th:text="${estudo.data}"></td>
-        <td><button onclick="openModal()">Abrir resumo</button></td>
+        <td><button onclick="openModal('${estudo.id}')">Ver resumo</button></td>
 
-        <div id="myModal" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeModal()">&times;</span>
-                <h2 th:text="${estudo.assunto}"></h2>
-                <p th:text="${estudo.resumo}"></p>
-                <button onclick="closeModal()" type="submit">Concluir</button>
-            </div>
-        </div>
     </tr>
-
     </tbody>
 </table>
+
+<div th:each="estudo: ${estudos}">
+    <div id="myModal-${estudo.id}" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('${estudo.id}')">&times;</span>
+            <h2 th:text="${estudo.assunto}"></h2>
+            <p th:text="${estudo.resumo}"></p>
+            <button onclick="closeModal('${estudo.id}')" type="submit">Concluir</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Função para abrir o modal
+    function openModal(id) {
+        var modal = document.getElementById("myModal-" + id);
+
+        modal.style.display = "block";
+        setTimeout(function() {
+            modal.classList.add("show");
+        }, 50);
+    }
+
+    // Função para fechar o modal
+    function closeModal(id) {
+        var modal = document.getElementById("myModal-" + id);
+        modal.classList.remove("show");
+        setTimeout(function() {
+            modal.style.display = "none";
+        }, 300);
+    }
+
+    // Fechar o modal quando o usuário clicar fora dele
+    window.onclick = function(event) {
+        var modal = document.getElementById("myModal");
+        if (event.target == modal) {
+            closeModal();
+        }
+    }
+</script>
+
 </body>
 </html>
