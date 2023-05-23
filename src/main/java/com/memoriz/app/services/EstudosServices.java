@@ -18,4 +18,8 @@ public class EstudosServices {
         return estudosRepository.save(estudos);
     }
 
+    public List<Estudos> findAll() {
+        return estudosRepository.findAll();
+    }
+
 }

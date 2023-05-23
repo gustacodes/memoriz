@@ -4,15 +4,28 @@ import com.memoriz.app.entities.Aluno;
 import com.memoriz.app.entities.Estudos;
 import com.memoriz.app.services.EstudosServices;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
-@RestController
+import java.util.List;
+
+@Controller
 @RequestMapping("/estudos")
 public class EstudosController {
 
     @Autowired
     private EstudosServices services;
 
+    @GetMapping("/meus-estudos")
+    public ModelAndView findAll() {
+        Iterable<Estudos> meusEstudos = services.findAll();
+        ModelAndView mv = new ModelAndView("resumos");
+        mv.addObject("estudos", meusEstudos);
+        return mv;
+    }
 }

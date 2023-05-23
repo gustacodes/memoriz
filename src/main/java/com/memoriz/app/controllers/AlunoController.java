@@ -22,7 +22,6 @@ import java.time.LocalDate;
 import java.util.*;
 
 @Controller
-@RequestMapping("/alunos")
 public class AlunoController {
 
     @Autowired
@@ -33,24 +32,22 @@ public class AlunoController {
 
     @PostMapping("/cadastro")
     public ResponseEntity<Aluno> save(@RequestBody Aluno aluno) {
-
         return ResponseEntity.status(HttpStatus.CREATED).body(alunoServices.save(aluno));
     }
 
     @GetMapping("/lista")
     public ResponseEntity<List<AlunoDTO>> findAll() {
         List<AlunoDTO> alunoDTO = alunoServices.findAll();
-
         return ResponseEntity.status(HttpStatus.OK).body(alunoDTO);
     }
 
-    @GetMapping("/estudos/save")
+    @GetMapping("/")
     public ModelAndView salvaEstudos() {
         ModelAndView mv = new ModelAndView("memoriz");
         return mv;
     }
 
-    @PostMapping("/estudos/save")
+    @PostMapping("/")
     public ModelAndView salvaEstudos(Estudos estudos) {
         ModelAndView mv = new ModelAndView("memoriz");
         estudosRepository.save(estudos);

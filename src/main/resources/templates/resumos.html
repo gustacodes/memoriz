@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8f8f8;
+        }
+
+        tr:hover {
+            background-color: #e2e2e2;
+        }
+
+        /* Estilos para o modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 10% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 800px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transform: translateY(-50%);
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+
+        .modal.show {
+            display: block;
+        }
+
+        .modal.show .modal-content {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Estilos para o botão de fechar */
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+    </style>
+
+    <script>
+        // Função para abrir o modal
+        function openModal() {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "block";
+            setTimeout(function() {
+                modal.classList.add("show");
+            }, 50);
+        }
+
+        // Função para fechar o modal
+        function closeModal() {
+            var modal = document.getElementById("myModal");
+            modal.classList.remove("show");
+            setTimeout(function() {
+                modal.style.display = "none";
+            }, 300);
+        }
+
+        // Fechar o modal quando o usuário clicar fora dele
+        window.onclick = function(event) {
+            var modal = document.getElementById("myModal");
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+    </script>
+</head>
+<body>
+<h2>Meus Resumos</h2>
+<table>
+    <thead>
+    <tr>
+        <th>STATUS</th>
+        <th>MATÉRIA</th>
+        <th>ASSUNTO</th>
+        <th>DATA</th>
+        <th>RESUMO</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="estudo: ${estudos}">
+        <td style="color: green"><strong>Revisado ✔</strong></td>
+        <td th:text="${estudo.disciplina}"></td>
+        <td th:text="${estudo.assunto}"></td>
+        <td th:text="${estudo.data}"></td>
+        <td><button onclick="openModal()">Abrir resumo</button></td>
+
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h2 th:text="${estudo.assunto}"></h2>
+                <p th:text="${estudo.resumo}"></p>
+                <button onclick="closeModal()" type="submit">Concluir</button>
+            </div>
+        </div>
+    </tr>
+
+    </tbody>
+</table>
+</body>
+</html>

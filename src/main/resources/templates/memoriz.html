@@ -5,19 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet" href="/src/main/resources/static/css/style.css">
+    <link rel="stylesheet" href="https://andrelessssa.github.io/Memoriz/css/style.css">
     <title>Memoriz Revise & Aprenda</title>
-    <style>
-        body{
-            background-image: url(/src/main/resources/static/img/background.png);
-        }
-    </style>
+
     <title>Memoriz</title>
 </head>
 <body>
     <header class="caixa-topo">
         <div class="logo-topo" id="logo">
-            <img src="/src/main/resources/static/img/Logo.png" alt="logo do Site">
+            <img src="https://andrelessssa.github.io/Memoriz/img/Logo.png" alt="logo do site">
         </div>
         
         <div class="caixa-nav-top">
@@ -40,7 +36,7 @@
     <div class="box">
         <div class="img-box">
             <div class="caixa-logo">
-            <img src="/src/main/resources/static/img/Logo.png" alt="logo do Site" >
+            <img src="https://andrelessssa.github.io/Memoriz/img/Logo.png" alt="logo do Site" >
             </div>
             <div>
             <textarea name="" id="" cols="30" rows="10" placeholder="Revisão de 24HS"></textarea>
@@ -51,26 +47,26 @@
         <div class="form-box">
             <h2>Vamos Estudar...</h2>
             
-            <form action="#">
+            <form action="/" method="post">
                 <div class="input-grupo w50">
                     <label for="materia">O que vamos ESTUDAR?</label>
-                    <input type="text" id="materia" placeholder="Digite Aqui a Matéria" required>
+                    <input name="disciplina" type="text" id="materia" placeholder="Digite aqui a matéria" required>
                 </div>
                 <div class="input-grupo w50">
-                    <label for="assunto">Qual o Assunto?</label>
-                    <input type="text" id="assunto" placeholder="Digite Aqui o Assunto" required>
+                    <label for="assunto">Qual o assunto?</label>
+                    <input type="text" name="assunto" id="assunto" placeholder="Digite aqui o assunto" required>
                 </div>
                 <div class="input-grupo w50 data">
                     <label for="data">Data:</label>
-                    <input type="date" id="data" placeholder="Digite Aqui o Assunto" required>
+                    <input type="date" name="data" id="data" required>
                 </div>
 
                 <div class="input-grupo w50" >
-                    <label for="resumo">Faça Seu Resumo:</label>
-                    <textarea name="resumo" id="resumo" cols="30" rows="10" placeholder="Digite Aqui o Seu resumo" required class="area"></textarea>
+                    <label for="resumo">Faça seu resumo:</label>
+                    <textarea name="resumo" id="resumo" cols="30" rows="10" placeholder="Digite aqui o seu resumo" required class="area"></textarea>
                 </div> 
                 <div class="input-grupo">
-                    <button>Cadastrar</button>
+                    <button type="submit" th:href="@{/cadastro}">Cadastrar</button>
                 </div>
             </form>
         </div>
