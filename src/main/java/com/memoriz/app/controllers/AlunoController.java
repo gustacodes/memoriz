@@ -41,19 +41,6 @@ public class AlunoController {
         return ResponseEntity.status(HttpStatus.OK).body(alunoDTO);
     }
 
-    @GetMapping("/")
-    public ModelAndView salvaEstudos() {
-        ModelAndView mv = new ModelAndView("memoriz");
-        return mv;
-    }
-
-    @PostMapping("/")
-    public ModelAndView salvaEstudos(Estudos estudos) {
-        ModelAndView mv = new ModelAndView("resumos");
-        estudosRepository.save(estudos);
-        return mv;
-    }
-
     @GetMapping("/estudos/{id}")
     public ResponseEntity<AlunoDTO> estudos(@PathVariable Long id) {
         AlunoDTO alunoDTO = alunoServices.findById(id);

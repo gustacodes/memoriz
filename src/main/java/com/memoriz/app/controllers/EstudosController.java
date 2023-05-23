@@ -21,7 +21,20 @@ public class EstudosController {
     @Autowired
     private EstudosServices services;
 
-    @GetMapping("/meus-estudos")
+    @GetMapping("/registrar-resumo")
+    public ModelAndView saveStudies() {
+        ModelAndView mv = new ModelAndView("memoriz");
+        return mv;
+    }
+
+    @PostMapping("/registrar-resumo")
+    public ModelAndView saveStudies(Estudos estudos) {
+        ModelAndView mv = new ModelAndView("resumos");
+        services.save(estudos);
+        return mv;
+    }
+
+    @GetMapping("/meus-resumos")
     public ModelAndView findAll() {
         Iterable<Estudos> meusEstudos = services.findAll();
         ModelAndView mv = new ModelAndView("resumos");
