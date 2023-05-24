@@ -28,16 +28,15 @@ public class EstudosController {
     }
 
     @PostMapping("/registrar-resumo")
-    public ModelAndView saveStudies(Estudos estudos) {
-        ModelAndView mv = new ModelAndView("resumos");
+    public String saveStudies(Estudos estudos) {
         services.save(estudos);
-        return mv;
+        return "redirect:/estudos/meus-resumos";
     }
 
     @GetMapping("/meus-resumos")
     public ModelAndView findAll() {
         Iterable<Estudos> meusEstudos = services.findAll();
-        ModelAndView mv = new ModelAndView("resumos");
+        ModelAndView mv = new ModelAndView("/tests/resumos");
         mv.addObject("estudos", meusEstudos);
         return mv;
     }
