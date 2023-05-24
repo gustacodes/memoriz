@@ -21,6 +21,12 @@ public class EstudosController {
     @Autowired
     private EstudosServices services;
 
+    @GetMapping("/resumos")
+    public ModelAndView meuPau() {
+        ModelAndView mv = new ModelAndView("relatorio");
+        return mv;
+    }
+
     @GetMapping("/registrar-resumo")
     public ModelAndView saveStudies() {
         ModelAndView mv = new ModelAndView("memoriz");
