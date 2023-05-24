@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
     <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,7 +13,7 @@
 <body>
     <header class="caixa-topo">
         <div class="logo-topo" id="logo">
-            <a href="/memoriz.html">
+            <a th:href="@{/memoriz}">
                 <img src="/Logo.png" alt="logo do Site" >
             </a>
         </div>
@@ -22,9 +22,9 @@
             
         <nav class="caixa-ul-top" >
             <ul  id="itens">
-              <li><a href="/relatorio.html">Relatórios</a></li>
-              <li><a href="/Login.html">Entrar</a></li>
-              <li><a href="/memoriz.html">Sair</a></li>
+              <li><a th:href="@{/relatorio}">Relatórios</a></li>
+              <li><a th:href="@{/login}">Entrar</a></li>
+              <li><a th:href="@{/memoriz}">Sair</a></li>
             </ul>
         
           </nav>
