@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class EstudosServices {
@@ -20,6 +21,11 @@ public class EstudosServices {
 
     public List<Estudos> findAll() {
         return estudosRepository.findAll();
+    }
+
+    public Estudos findById(Long id) {
+        Optional<Estudos> estudo = estudosRepository.findById(id);
+        return estudo.get();
     }
 
 }
