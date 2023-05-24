@@ -27,9 +27,12 @@
     }
 
     /* Estilos para a área de texto */
-    .text-area {
-      margin: 50px;
-      padding-left: 400px;
+    textarea {
+      margin-left: 400px;
+      margin-top: 50px;
+      font-family: Arial;
+      font-size: 15px;
+      resize: none;
     }
   </style>
     <script>
@@ -42,13 +45,18 @@
 <!-- Menu de navegação -->
 <div class="menu">
     <div th:each="estudo : ${estudos}">
-        <a href="#" th:text="${estudo.disciplina}" th:attr="onclick='minhaFuncao(`'+${estudo.resumo}+'`)'" ></a>
+        <a href="#" th:attr="onclick='minhaFuncao(`'+${estudo.resumo}+'`)'" >/Estudos/[[${estudo.disciplina}]]</a>
     </div>
 </div>
 
 <!-- Área de texto -->
-<div class="text-area">
-    <textarea id="content" cols="100" rows="30"></textarea>
-</div>
+
+<form action="#" method="post">
+    <div class="text-area">
+        <textarea name="resumo" id="content" cols="100" rows="30"></textarea>
+        <button type="submit">Salvar</button>
+    </div>
+</form>
+
 </body>
 </html>

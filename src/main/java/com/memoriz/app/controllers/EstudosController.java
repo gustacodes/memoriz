@@ -6,10 +6,7 @@ import com.memoriz.app.services.EstudosServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -33,8 +30,18 @@ public class EstudosController {
         return "redirect:/estudos/meus-resumos";
     }
 
+    @PostMapping("/registrar-resumo/{id}")
+    public String updateStudies(@PathVariable Long id, Estudos estudos) {
+
+        Estudos studies = services.findById(id);
+        studies.setId(id);
+        studies.setResumo(estudos.getResumo());
+        services.save(studies);
+        return "redirect:/estudos/meus-resumos";
+    }
+
     @GetMapping("/meus-resumos")
-    public ModelAndView findAll() {
+    public ModelAndView findAllStudies() {
         Iterable<Estudos> meusEstudos = services.findAll();
         ModelAndView mv = new ModelAndView("/tests/resumos");
         mv.addObject("estudos", meusEstudos);
