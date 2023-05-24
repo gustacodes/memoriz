@@ -45,7 +45,7 @@
 <!-- Menu de navegação -->
 <div class="menu">
     <div th:each="estudo : ${estudos}">
-        <a href="#" th:attr="onclick='minhaFuncao(`'+${estudo.resumo}+'`)'" >/Estudos/[[${estudo.disciplina}]]</a>
+        <a href="#" th:attr="onclick='minhaFuncao(`'+${estudo.resumo}+'`)'" >/Estudos/resumo/[[${estudo.disciplina}]]</a>
     </div>
 </div>
 
