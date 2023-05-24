@@ -63,6 +63,49 @@ nav ul li a{
 nav ul li a:hover{
     color: white;
 }
+.box-resumo{
+    display: grid;
+    width: 800px;
+    height: 900px;
+    box-sizing: border-box;
+    justify-items: center;
+    
+    
+}
+textarea{
+    width: 800px;
+    height: 600px;
+    background-color: rgba(255,255, 255,0.32);
+    border-radius: 20px;
+    outline: none;
+    border: 2px solid transparent;
+    font-size: 15px;
+    color: #616161;
+    transition: all 0.4s ease;
+    margin-top: 200px;
+   
+}
+.caixaDosBotoes{
+   
+    display: flex;
+    justify-content: end;
+    width: 780px;
+    height: 50px;
+
+}
+.btn-salvar{
+    height: 100%;
+    width: 35%;
+    background: #3e3c6e;
+    border-radius: 20px;
+    outline: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+
+}
+
 
 
 
@@ -102,6 +145,11 @@ nav ul li a:hover{
         color: white;
     }
 }
+
+
+
+
+
 @media (max-width:419px) {
    
     
