@@ -71,6 +71,7 @@ nav ul li a:hover{
       
 }
 textarea{
+    padding: 20px;
     width: 800px;
     height: 650px;
     background-color: rgba(255,255, 255,0.32);
