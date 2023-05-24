@@ -4,12 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="/style.css">
-    <style>
-        body {
-            background-color: url(background.png);
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
     <title>Memoriz Revise & Aprenda</title>
   
     <title>Memoriz</title>
@@ -17,8 +12,8 @@
 <body>
     <header>
         <div class="logo-topo" id="logo">
-            <a href="/memoriz.html">
-            <img src="/Logo.png" alt="logo do Site" >
+            <a th:href="@{/memoriz}">
+            <img src="/imgs/Logo.png" alt="logo do Site" >
             </a>
         </div>
         
@@ -38,7 +33,7 @@
     <div class="box">
         <div class="img-box">
             <div class="caixa-logo">
-            <img src="/Logo.png" alt="logo do Site" >
+            <img src="/imgs/Logo.png" alt="logo do Site" >
             </div>
             <div>
             <textarea name="" id="" cols="30" rows="10" placeholder="Revisão de 24HS"></textarea>

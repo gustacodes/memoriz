@@ -7,7 +7,7 @@
     font-family: 'Poppins', sans-serif;  
 }
 body{
-    background-image: url(background.png);
+    background-image: url(/imgs/background.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -82,9 +82,7 @@ nav ul li a:hover{
         width: 70%;
         display: flex;
         justify-items: center;
-    }
-  
-     
+    }  
     nav ul{
         display: flex;
     }
