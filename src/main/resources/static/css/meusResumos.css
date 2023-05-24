@@ -67,14 +67,12 @@ nav ul li a:hover{
     display: grid;
     width: 800px;
     height: 900px;
-    box-sizing: border-box;
     justify-items: center;
-    
-    
+      
 }
 textarea{
     width: 800px;
-    height: 600px;
+    height: 650px;
     background-color: rgba(255,255, 255,0.32);
     border-radius: 20px;
     outline: none;
@@ -82,15 +80,16 @@ textarea{
     font-size: 15px;
     color: #616161;
     transition: all 0.4s ease;
-    margin-top: 200px;
+    margin-top: 150px;
    
 }
 .caixaDosBotoes{
-   
+    
     display: flex;
     justify-content: end;
     width: 780px;
     height: 50px;
+   
 
 }
 .btn-salvar{
