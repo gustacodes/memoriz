@@ -32,13 +32,13 @@
     </header>
 
     <div class="box-resumo">
-        <textarea name="" id="" cols="30" rows="10" placeholder=></textarea>   
+        <textarea th:object="${estudos}" name="resumo" id="" cols="30" rows="10" placeholder=>[[${estudos.resumo}]]</textarea>
         <div class="caixaDosBotoes">
                 <button class="btn-salvar">Salvar</button>
         </div>
     </div>
-   
-    
+
+
     
 </body>
 </html>

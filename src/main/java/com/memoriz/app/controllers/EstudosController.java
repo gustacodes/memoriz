@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.List;
 
@@ -18,19 +19,7 @@ public class EstudosController {
     @Autowired
     private EstudosServices services;
 
-    @GetMapping("/registrar-resumo")
-    public ModelAndView saveStudies() {
-        ModelAndView mv = new ModelAndView("memoriz");
-        return mv;
-    }
-
-    @PostMapping("/registrar-resumo")
-    public String saveStudies(Estudos estudos) {
-        services.save(estudos);
-        return "redirect:/estudos/meus-resumos";
-    }
-
-    @PostMapping("/registrar-resumo/{id}")
+    /*@PostMapping("/registrar-resumo/{id}")
     public String updateStudies(@PathVariable Long id, Estudos estudos) {
 
         Estudos studies = services.findById(id);
@@ -38,12 +27,24 @@ public class EstudosController {
         studies.setResumo(estudos.getResumo());
         services.save(studies);
         return "redirect:/estudos/meus-resumos";
+    }*/
+
+    @GetMapping("/registrar-resumo")
+    public ModelAndView saveStudies() {
+        ModelAndView mv = new ModelAndView("memoriz");
+        return mv;
     }
 
-    @GetMapping("/meus-resumos")
-    public ModelAndView findAllStudies() {
-        Iterable<Estudos> meusEstudos = services.findAll();
-        ModelAndView mv = new ModelAndView("/tests/resumos");
+    @PostMapping("/registrar-resumo")
+    public RedirectView saveStudies(Estudos estudos) {
+        services.save(estudos);
+        return new RedirectView("/estudos/meus-resumos/" + estudos.getId() + "?disciplina=" + estudos.getDisciplina() + "&assunto=" + estudos.getAssunto());
+    }
+
+    @GetMapping("/meus-resumos/{id}")
+    public ModelAndView findStudies(@PathVariable Long id, @RequestParam("disciplina") String disciplina, @RequestParam("assunto") String assunto) {
+        Estudos meusEstudos = services.findById(id);
+        ModelAndView mv = new ModelAndView("meusResumos");
         mv.addObject("estudos", meusEstudos);
         return mv;
     }
