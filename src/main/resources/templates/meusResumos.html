@@ -6,9 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="/css/meusResumos.css">
-    <title>Memoriz Revise & Aprenda</title>
-   
-    <title>Memoriz</title>
+    <title>Memoriz - Revise & Aprenda</title>
+
 </head>
 <body>
     <header >
@@ -32,13 +31,13 @@
     </header>
 
     <div class="box-resumo">
-        <textarea name="" id="" cols="30" rows="10" placeholder=></textarea>   
+        <textarea th:object="${estudos}" name="resumo" id="" cols="30" rows="10" placeholder=>[[${estudos.resumo}]]</textarea>
         <div class="caixaDosBotoes">
                 <button class="btn-salvar">Salvar</button>
         </div>
     </div>
-   
-    
+
+
     
 </body>
 </html>
