@@ -21,7 +21,7 @@
            
         <nav >
             <ul  id="itens">
-              <li><a th:href="@{/meus-resumos}">Meus Resumos</a></li>
+              <li><a th:href="@{/meusResumos}">Meus Resumos</a></li>
               <li><a th:href="@{/memoriz}">Entrar</a></li>
               <li><a th:href="@{/memoriz}">Sair</a></li>
             </ul>
@@ -29,14 +29,19 @@
           </nav>
         </div>
     </header>
-    
+
     <div class="box">
         <div class="img-box">
             <div class="caixa-logo">
             <img src="/imgs/Logo.png" alt="logo do Site" >
             </div>
+
+            <div th:each="estudo : ${estudos}">
+                <a th:href="@{'/estudos/meus-resumos/' + ${estudo.id}}">[[${estudo.disciplina}]]/[[${estudo.assunto}]]</a>
+            </div>
+
+
             <div>
-            <textarea name="" id="" cols="30" rows="10" placeholder="Revisão de 24HS"></textarea>
             <textarea name="" id="" cols="30" rows="10" placeholder="Revisão de ..."></textarea>
             </div>
         </div>

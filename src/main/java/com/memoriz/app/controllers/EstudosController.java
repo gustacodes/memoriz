@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/estudos")
@@ -32,19 +33,21 @@ public class EstudosController {
     @GetMapping("/registrar-resumo")
     public ModelAndView saveStudies() {
         ModelAndView mv = new ModelAndView("memoriz");
+        List<Estudos> estudos = services.findAll();
+        mv.addObject("estudos", estudos);
         return mv;
     }
 
     @PostMapping("/registrar-resumo")
     public RedirectView saveStudies(Estudos estudos) {
         services.save(estudos);
-        return new RedirectView("/estudos/meus-resumos/" + estudos.getId() + "?disciplina=" + estudos.getDisciplina() + "&assunto=" + estudos.getAssunto());
+        return new RedirectView("/estudos/registrar-resumo");
     }
 
     @GetMapping("/meus-resumos/{id}")
-    public ModelAndView findStudies(@PathVariable Long id, @RequestParam("disciplina") String disciplina, @RequestParam("assunto") String assunto) {
+    public ModelAndView findStudies(@PathVariable Long id) {
         Estudos meusEstudos = services.findById(id);
-        ModelAndView mv = new ModelAndView("meusResumos");
+        ModelAndView mv = new ModelAndView("resumos");
         mv.addObject("estudos", meusEstudos);
         return mv;
     }
