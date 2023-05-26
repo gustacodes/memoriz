@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/estudos")
@@ -45,6 +46,14 @@ public class EstudosController {
     public ModelAndView findStudies(@PathVariable Long id, @RequestParam("disciplina") String disciplina, @RequestParam("assunto") String assunto) {
         Estudos meusEstudos = services.findById(id);
         ModelAndView mv = new ModelAndView("meusResumos");
+        mv.addObject("estudos", meusEstudos);
+        return mv;
+    }
+
+    @GetMapping("/meus-resumos/teste")
+    public ModelAndView teste() {
+        List<Estudos> meusEstudos = services.findAll();
+        ModelAndView mv = new ModelAndView("tests/resumos");
         mv.addObject("estudos", meusEstudos);
         return mv;
     }
