@@ -70,7 +70,11 @@ nav ul li a:hover{
     justify-items: center;
       
 }
-textarea{
+.espacoResumo{
+   
+    display: flex;
+}
+.espacoResumo textarea{
     padding: 20px;
     width: 800px;
     height: 650px;
@@ -84,6 +88,30 @@ textarea{
     margin-top: 150px;
    
 }
+.meusRes{
+   
+    
+    height: 100px;
+    width: 150px;
+    border: 2px solid black;
+    
+}
+.btn-materia{
+    height: 100%;
+    width: 100%;
+    background: #3e3c6e;
+    border-radius: 20px;
+    outline: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+
+}
+.btn-materia .verde{
+    background: red;
+}
+
 .caixaDosBotoes{
     
     display: flex;
