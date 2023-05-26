@@ -37,7 +37,7 @@
             </div>
 
             <div th:each="estudo : ${estudos}">
-                <a>[[${estudo.disciplina}]]/[[${estudo.assunto}]]</a>
+                <a th:href="@{'/estudos/meus-resumos/' + ${estudo.id}}">[[${estudo.disciplina}]]/[[${estudo.assunto}]]</a>
             </div>
 
 
