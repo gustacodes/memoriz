@@ -45,15 +45,7 @@ public class EstudosController {
     @GetMapping("/meus-resumos/{id}")
     public ModelAndView findStudies(@PathVariable Long id, @RequestParam("disciplina") String disciplina, @RequestParam("assunto") String assunto) {
         Estudos meusEstudos = services.findById(id);
-        ModelAndView mv = new ModelAndView("meusResumos");
-        mv.addObject("estudos", meusEstudos);
-        return mv;
-    }
-
-    @GetMapping("/meus-resumos/teste")
-    public ModelAndView teste() {
-        List<Estudos> meusEstudos = services.findAll();
-        ModelAndView mv = new ModelAndView("tests/resumos");
+        ModelAndView mv = new ModelAndView("/tests/resumosTest");
         mv.addObject("estudos", meusEstudos);
         return mv;
     }

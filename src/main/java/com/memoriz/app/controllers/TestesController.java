@@ -13,7 +13,7 @@ public class TestesController {
         return mv;
     }
 
-    @GetMapping("/meus-resumos")
+    @GetMapping("/meusResumos")
     public ModelAndView meusResumos() {
         ModelAndView mv = new ModelAndView("meusResumos");
         return mv;
