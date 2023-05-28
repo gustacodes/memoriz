@@ -39,10 +39,13 @@
             <div th:each="estudo : ${estudos}">
                 <a th:href="@{'/estudos/meus-resumos/' + ${estudo.id}}">[[${estudo.disciplina}]]/[[${estudo.assunto}]]</a>
             </div>
-
-
+            <div class="areas-laterias">
             <div>
-            <textarea name="" id="" cols="30" rows="10" placeholder="Revisão de ..."></textarea>
+                <textarea name="" id="" cols="30" rows="10" placeholder="Revisão de 24HS..."></textarea>
+                </div>
+            <div>
+            <textarea name="" id="" cols="30" rows="10" placeholder="Revisão de 7 DIAS..."></textarea>
+            </div>
             </div>
         </div>
 

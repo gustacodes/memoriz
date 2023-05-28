@@ -71,8 +71,11 @@ nav ul li a:hover{
     width: 50%;
     display: grid;
     align-items: center;
-    padding: 20px;
+    padding: 5px;
     border-radius: 20px 0 0 20px;
+}
+.areas-laterias{
+    margin: 20px;
 }
 .caixa-logo{
     display: flex;
