@@ -66,16 +66,17 @@ nav ul li a:hover{
     color: white;
 }
 .timeline {
+ 
     position: relative;
     max-width: 800px;
     margin: 0 auto;
-    padding: 50px;
-    text-align: center;
     margin-top: 150px;
+    padding: 50px;
   }
   
   .timeline-item {
     margin-bottom: 50px;
+
   }
   
   .timeline-date {
